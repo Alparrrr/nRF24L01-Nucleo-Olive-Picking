@@ -9,7 +9,7 @@ PROJECT SUMMARY :
 
 This figure shows us pinout, connectivities , I/Os and timer pins of master nucleo.
 
-For Analog Read with Polling method :
+For Analog Read with Polling Method :
 
 ![image](https://user-images.githubusercontent.com/70060259/202443992-4f841dae-44bc-45b8-8416-4d41a7c209b7.png)
 
@@ -17,7 +17,7 @@ After doing pin configuration, write select functions which have polling paramet
 
 ![image](https://user-images.githubusercontent.com/70060259/202444356-ec6dc64d-3ee5-43b8-b2e1-e7f5a2476f3e.png)
 
-Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the adc read.
+Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the ADC read. In order to this method, the maximum ADC channels of the microprocessor can be read without any mess. 
 
 
 
