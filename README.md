@@ -17,7 +17,7 @@ After doing pin configuration, write select functions which have polling paramet
 
 ![image](https://user-images.githubusercontent.com/70060259/202444356-ec6dc64d-3ee5-43b8-b2e1-e7f5a2476f3e.png)
 
-Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the ADC read. In order to this method, the maximum ADC channels of the microprocessor can be read without any mess. 
+Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values which are different each others. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the ADC read. In order to this method, the maximum ADC channels of the microprocessor can be read without any mess. 
 
 
 
