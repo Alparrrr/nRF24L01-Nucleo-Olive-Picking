@@ -11,7 +11,7 @@ This figure shows us pinout, connectivities , I/Os and timer pins of master nucl
 
 For nRF Configuration :
 
-![image](https://user-images.githubusercontent.com/70060259/202441793-84e26366-b4e8-43e0-bb7c-66462d769d2e.png) ![image](https://user-images.githubusercontent.com/70060259/202442646-756b91be-5f5f-408a-8cae-f005e26ae262.png)
+![image](https://user-images.githubusercontent.com/70060259/202441793-84e26366-b4e8-43e0-bb7c-66462d769d2e.png)   ![image](https://user-images.githubusercontent.com/70060259/202442646-756b91be-5f5f-408a-8cae-f005e26ae262.png)
 
 
 SPI cofiguration is here. The baudrate is crucial for both RX and TX parts. Hence, baudrate must be the same both RX and TX, even if you use different clock frequencies.
