@@ -8,3 +8,9 @@ PROJECT SUMMARY :
 ![image](https://user-images.githubusercontent.com/70060259/202440002-ebf6e4ef-6710-4a84-a548-7e4e312a3843.png)
 
 This figure shows us pinout, connectivities , I/Os and timer pins of master nucleo.
+
+For nRF Configuration :
+
+![image](https://user-images.githubusercontent.com/70060259/202441793-84e26366-b4e8-43e0-bb7c-66462d769d2e.png)
+
+SPI cofiguration is here. The baudrate is crucial for both RX and TX parts. Hence, baudrate must be the same both RX and TX, even if you use different clock frequencies.
