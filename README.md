@@ -9,9 +9,24 @@ PROJECT SUMMARY :
 
 This figure shows us pinout, connectivities , I/Os and timer pins of master nucleo.
 
+For Analog Read with Polling method :
+
+![image](https://user-images.githubusercontent.com/70060259/202443992-4f841dae-44bc-45b8-8416-4d41a7c209b7.png)
+
+After doing pin configuration, write select functions which have polling parameters for all ADC pins.
+
+![image](https://user-images.githubusercontent.com/70060259/202444356-ec6dc64d-3ee5-43b8-b2e1-e7f5a2476f3e.png)
+
+Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the adc read.
+
+
+
+
+
+
 For nRF Configuration :
 
 ![image](https://user-images.githubusercontent.com/70060259/202441793-84e26366-b4e8-43e0-bb7c-66462d769d2e.png)   ![image](https://user-images.githubusercontent.com/70060259/202442646-756b91be-5f5f-408a-8cae-f005e26ae262.png)
 
 
-SPI cofiguration is here. The baudrate is crucial for both RX and TX parts. Hence, baudrate must be the same both RX and TX, even if you use different clock frequencies.
+SPI cofiguration is here. The baudrate is crucial for both RX and TX parts. Hence, baudrate must be the same both RX and TX, even if you use different clock frequencies. You need 2 more output pins for chip select and chip enable. You can see the figures above.
