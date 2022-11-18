@@ -1,7 +1,8 @@
 # nRF24L01-Nucleo
 PROJECT SUMMARY :
 
-   This system is designed for a Olive Picking Machine. Firstly , we are reading 12x analog variable like a potantiometer. They give us position information of steering wheel and beaters. After reading the values, we have 16x PWM output to control the lenght of machine , steering wheels, position of the beaters and the machine according to the trees. Secondly, we are choose using a RF remote controller to control the machine parts separately. In RC(Remote Controller), we are planing to send 2 digital signal in addition to the data package. One of is Overwrite Signal to make an overwrite for the values that comes from the machine parts and the other one is Voltage-Detect Signal for understanding if the RC is opened or not. Lastly, we recoded that when the tranciever part is starting to run in begining, the values and data packeges are coming randomly for a moment. Hence, We can put some delay but we are going to use 2 more digital signals on tranciever side for the same reasons with the RC part and to prevent random machine movements. As it is seen above, we are using analog pins , timer pins for pwm, SPI pins for RF Controller.To give one more little information for the machine, it consists of only electrical and hydraulical systems.
+   This system is designed for a Olive Picking Machine. Firstly , I am reading 12x software and hardware filtered analog variable comes from like a multi-turn potantiometer. They give us position information of steering wheel and beaters. After reading the values, we have 16x High or Low side PWM output with diagnostics to control the lenght of machine , steering wheels, position of the beaters and position of the machine itself according to the trees. Secondly, I choose to use a DIY RF controller to control the machine parts separately. In RC(Remote Controller), I am planing to send 2 digital signal in addition to the data package. One of is Overwrite Signal to make an overwrite for the values that comes from the machine parts and the other one is Voltage-Detect Signal for understanding if the RC is opened or not. Lastly, I recorded that when the tranciever part is starting to run in begining, the values and data packeges are coming randomly for a moment. Hence, I can put some delay but I am going to use 2 more digital signals on tranciever side for the same reasons with the RC part and to prevent random machine movements. 
+   As it is seen above, I am using analog pins , timer pins for pwm, SPI pins for RF Controller. To give one more little information for the machine, it consists of only electrical and hydraulical systems.
    
    How to Use : 
    
@@ -28,8 +29,9 @@ To apply IIR filter to the analog value that comes from potantiometer, you can u
 
 
 
-The figure that below the 3rd order IIR FILTER code that generates by winfilter program.
-![image](https://user-images.githubusercontent.com/70060259/202680119-60a34642-0319-49fe-af17-674164d0c6d7.png)
+The figure that below the 3rd order IIR FILTER code that generates by winfilter program. You can create more function like this. In this case, you can filter all of your variables by one by.
+
+![image](https://user-images.githubusercontent.com/70060259/202813790-e1f87e63-2067-4343-b97c-c2e5efc17ae9.png)
 
 
 
@@ -41,3 +43,28 @@ For nRF Configuration :
 
 
 SPI cofiguration is here. The baudrate is crucial for both RX and TX parts. Hence, baudrate must be the same both RX and TX, even if you use different clock frequencies. You need 2 more output pins for chip select and chip enable. You can see the figures above.
+
+
+
+Write the init and necessary functions. For this release , RF's are using 1 pipe.
+
+![image](https://user-images.githubusercontent.com/70060259/202816711-24f20107-9bab-48b9-bd5e-06e1757dc779.png)
+![image](https://user-images.githubusercontent.com/70060259/202816967-aff36336-2ed4-41b0-8541-30d0487266af.png)
+
+
+In infinite loop, we can start our functions and RX-TX process like that. You can think to use a struct and a object to perform dynamic payloads. The figure below shows how to use this structure.
+
+![image](https://user-images.githubusercontent.com/70060259/202817323-65bccb2f-f1c2-43c6-af7a-e9fa0cd56f9c.png)
+
+I have only told the transmitter part until here. RX part is very similar to TX part. Hence, I am just sharing the files for now.
+
+
+NOTE:
+
+This is not the whole project. I am dealing with issues migrating the project to FREERTOS. For this project, hardware implementation and PCB work are in progress. After finishing the hardware design, I will share in here.
+
+
+For all questions or further contact : alialper97@gmail.com
+
+
+
