@@ -19,11 +19,17 @@ After doing pin configuration, write select functions which have polling paramet
 
 Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values which are different each others. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the ADC read. In order to this method, the maximum ADC channels of the microprocessor can be read without any mess. 
 
+IIR FILTER : 
+
+
 ![image](https://user-images.githubusercontent.com/70060259/202680050-323401ef-40e8-4595-adf1-2c3fba4ce295.png)
-![image](https://user-images.githubusercontent.com/70060259/202680119-60a34642-0319-49fe-af17-674164d0c6d7.png)
 
 To apply IIR filter to the analog value that comes from potantiometer, you can use http://www.winfilter.20m.com.
 
+
+
+The figure that below the 3rd order IIR FILTER code that generates by winfilter program.
+![image](https://user-images.githubusercontent.com/70060259/202680119-60a34642-0319-49fe-af17-674164d0c6d7.png)
 
 
 
