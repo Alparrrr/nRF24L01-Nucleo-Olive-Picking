@@ -29,7 +29,7 @@ To apply IIR filter to the analog value that comes from potantiometer, you can u
 
 
 
-The figure that below the 3rd order IIR FILTER code that generates by winfilter program. You can create more function like this. In this case, you can filter all of your variables by one by.
+The figure that below includes the 3rd order IIR FILTER code that generates by winfilter program. You can create more function like this. In this case, you can filter all of your variables by one by.
 
 ![image](https://user-images.githubusercontent.com/70060259/202813790-e1f87e63-2067-4343-b97c-c2e5efc17ae9.png)
 
