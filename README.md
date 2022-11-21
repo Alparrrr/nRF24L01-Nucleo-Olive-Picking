@@ -20,6 +20,22 @@ After doing pin configuration, write select functions which have polling paramet
 
 Write one more READ function to read analog value separately. The continuous conversion mode must be disabled, because we want to read analog values sequentially and don't want them to get mixed up when reading 12 values which are different each others. Just select the ADC channel, start adc read, write poll for per conversation function, get the value that you want and stop the ADC read. In order to this method, the maximum ADC channels of the microprocessor can be read without any mess. 
 
+
+For Analog Read using DMA : 
+
+
+![image](https://user-images.githubusercontent.com/70060259/203138693-63380a6d-1f8c-4789-afc8-43b4313607c0.png)
+
+  uint32_t ADC_DEGER[12];
+  
+  HAL_ADC_Start_DMA(&hadc1,ADC_DEGER,12);
+  
+  Just write these lines. DMA Continuous Request , Continuous Conversion Mode must be enabled. DMA mode is circular, data width is word for both peripheral and memory. Release all other adc code lines. 
+  
+  ![image](https://user-images.githubusercontent.com/70060259/203138832-23276c37-d5b8-48b5-a77d-acda503a2a6c.png)
+
+   With DMA method, the maximum adc channels also readable without any mixes and mess. This is enough for the DMA method.
+  
 IIR FILTER : 
 
 
@@ -31,7 +47,7 @@ To apply IIR filter to the analog value that comes from potantiometer, you can u
 
 The figure that below includes the 3rd order IIR FILTER code that generates by winfilter program. You can create more function like this. In this case, you can filter all of your variables by one by.
 
-![image](https://user-images.githubusercontent.com/70060259/202813790-e1f87e63-2067-4343-b97c-c2e5efc17ae9.png)
+![image](https://user-images.githubusercontent.com/70060259/203139369-f16cf767-2d52-429a-944d-830f3038c594.png)
 
 
 
